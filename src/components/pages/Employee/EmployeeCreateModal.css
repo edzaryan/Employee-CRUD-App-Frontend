@@ -1,8 +1,18 @@
 
 .employeeModal {
-    width: 400px;
+    width: 560px;
     position: relative;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -70%);
+}
+
+.employeeModal .img {
+    width: 130px;
+    height: 180px;
+    background-color: #6C757D;
+}
+
+.base {
+    background-color: rgba(232, 232, 232, 0.8);
 }

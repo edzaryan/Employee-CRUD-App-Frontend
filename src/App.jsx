@@ -3,22 +3,27 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import HomePage from './components/pages/HomePage';
-import EmployeePage from './components/pages/EmployeePage';
-import DepartmentPage from './components/pages/DepartmentPage';
+import EmployeePage from './components/pages/Employee/EmployeePage';
+import DepartmentPage from './components/pages/Department/DepartmentPage';
 import NotfoundPage from './components/pages/NotfoundPage';
+import EmployeeDetails from "./components/pages/Employee/EmployeeDetails";
 
 import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={ <HomePage /> } />
-        <Route path="/employee" element={ <EmployeePage /> } />
-        <Route path="/department" element={ <DepartmentPage /> } />
-        <Route path="*" element={ <NotfoundPage /> } />
-      </Routes>
+    <div className="flex faic fl-dir mg50-t">
+      <div className="w800">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={ <HomePage /> } />
+          <Route path="/employee" element={ <EmployeePage /> } />
+          <Route path="/department" element={ <DepartmentPage /> } />
+          <Route path="/employee/:id" element={ <EmployeeDetails /> } />
+
+          <Route path="*" element={ <NotfoundPage /> } />
+        </Routes>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,32 @@
+{
+  "department": [
+    {
+      "id": 1,
+      "name": "Java"
+    },
+    {
+      "id": 2,
+      "name": ".Net"
+    }
+  ],
+  "employee": [
+    {
+      "id": 1,
+      "name": "Edgar",
+      "surname": "Smith",
+      "department": 1
+    },
+    {
+      "id": 2,
+      "name": "Arevik",
+      "surname": "Anderson",
+      "department": 2
+    },
+    {
+      "id": 3,
+      "name": "Karen",
+      "surname": "Fisher",
+      "department": 2
+    }
+  ]
+}
