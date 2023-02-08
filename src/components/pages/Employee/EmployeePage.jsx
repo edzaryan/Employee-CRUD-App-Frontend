@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import EmployeeCreateModal from "./EmployeeCreateModal";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function EmployeePage() {
   const [modalOpened, setModalOpened] = useState(false);
   const [employees, setEmployees] = useState(null);
   const [lastEmployee, setLastEmployee] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
@@ -27,7 +28,7 @@ export default function EmployeePage() {
   return (
     <div>
       <div className="flex fjc-r mg10-b">
-        <button className="fc-lgt pd10 bg-lgt brd1 fc-drk" onClick={ () => setModalOpened(true) }>Create</button>
+        <button className="fc-lgt pd10 bg-lgt brd1 fc-drk rad3" onClick={ () => setModalOpened(true) }>Create</button>
       </div>
       <div>
         <div className="flex bg-suc">
@@ -66,16 +67,16 @@ export default function EmployeePage() {
               }
               {
                 employees && employees.map(e => (
-                  <div className="list" key={ e.id }>
+                  <div className="list" key={ e.id } onDoubleClick={ () => navigate(`/employee/${e.id}`) }>
                     <div className="flex faic mg3-b brd1">
                       <div className="fl1 ptb5 plr5 flex fjc-c">
                         <div className="circle50 bg-scd"></div>
                       </div>
                       <div className="fl1 pd5">{ e.name }</div>
                       <div className="fl1 pd5">{ e.surname }</div>
-                      <div className="fl1 pd5">IOS Developer</div>
+                      <div className="fl1 pd5">{ e.department }</div>
                       <div className="fl1 pd5">
-                        <Link to={ `${ e.id }` } className="pd5">Details</Link>
+                        <Link to={`${e.id}`} className="pd5">Details</Link>
                       </div>
                     </div>
                   </div>

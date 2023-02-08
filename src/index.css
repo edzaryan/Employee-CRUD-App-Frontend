@@ -14,7 +14,10 @@ select {
     border: 1px solid grey;
 }
 
-button { cursor: pointer; }
+button {
+    cursor: pointer;
+    min-width: 60px;
+}
 
 /* WIDTHS */
 .w800 { width: 800px; }
@@ -119,6 +122,7 @@ button { cursor: pointer; }
 .bg-sky { background-color: #0DCAF0; }
 .bg-lgt { background-color: #F8F9FA; }
 .bg-drk { background-color: #212529; }
+.bg-wht { background-color: #ffffff; }
 
 /* ROUND */
 
@@ -127,6 +131,10 @@ button { cursor: pointer; }
     height: 50px;
     border-radius: 50%;
 }
+
+/* RADIUS */
+
+.rad3 { border-radius: 3px; }
 
 /* FONT WEIGHT */
 
@@ -151,6 +159,7 @@ button { cursor: pointer; }
 .fc-sky { color: #0DCAF0; }
 .fc-lgt { color: #F8F9FA; }
 .fc-drk { color: #212529; }
+.fc-wht { color: #ffffff; }
 
 /* POSITION */
 
