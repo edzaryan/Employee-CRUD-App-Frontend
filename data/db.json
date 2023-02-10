@@ -2,18 +2,42 @@
   "department": [
     {
       "id": 1,
-      "name": "Java"
+      "name": ".Net"
     },
     {
       "id": 2,
-      "name": ".Net"
+      "name": "Java3"
+    },
+    {
+      "id": 4,
+      "name": "IOS"
+    },
+    {
+      "id": 5,
+      "name": "Javascript"
+    },
+    {
+      "id": 6,
+      "name": "CSS"
+    },
+    {
+      "name": "HTML",
+      "id": 7
+    },
+    {
+      "name": "Ruby",
+      "id": 8
+    },
+    {
+      "name": "Unity",
+      "id": 10
     }
   ],
   "employee": [
     {
       "name": "Cameron",
       "surname": "Dias",
-      "department": "2",
+      "department": "5",
       "id": 4
     },
     {
@@ -27,6 +51,24 @@
       "surname": "Sargsyan",
       "department": "1",
       "id": 6
+    },
+    {
+      "name": "ոոո",
+      "surname": "եեե",
+      "department": "3",
+      "id": 7
+    },
+    {
+      "name": "fdf",
+      "surname": "dfdf",
+      "department": "3",
+      "id": 8
+    },
+    {
+      "name": "ere",
+      "surname": "erer",
+      "department": "2",
+      "id": 9
     }
   ]
 }

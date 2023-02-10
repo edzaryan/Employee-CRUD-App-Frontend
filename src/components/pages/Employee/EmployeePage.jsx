@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import EmployeeCreateModal from "./EmployeeCreateModal";
-import axios from "axios";
-import {Link, useNavigate} from "react-router-dom";
+import EmployeeCreateModal from "./EmployeeCreateModal"
+import axios from "axios"
+import {Link, useNavigate} from "react-router-dom"
 
 export default function EmployeePage() {
-  const [modalOpened, setModalOpened] = useState(false);
-  const [employees, setEmployees] = useState(null);
-  const [lastEmployee, setLastEmployee] = useState(null);
+  const [modalOpened, setModalOpened] = useState(false)
+  const [employees, setEmployees] = useState(null)
+  const [lastEmployee, setLastEmployee] = useState(null)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function EmployeePage() {
           <div>
             {
               lastEmployee && <>
-                                <div className="mg10-t">Last created</div>
+                                <div className="mg10-t">Last Created</div>
                                 <div className="brd1 mg10-t">
                                   <div className="flex faic">
                                     <div className="fl1 ptb5 plr5 flex fjc-c">
@@ -63,11 +63,8 @@ export default function EmployeePage() {
             <div className="mg10-t">Employee List</div>
             <div className="mg10-t">
               {
-                !employees && <div>Loading...</div>
-              }
-              {
-                employees && employees.map(e => (
-                  <div className="list" key={ e.id } onDoubleClick={ () => navigate(`/employee/${e.id}`) }>
+                employees ? employees.map(e => (
+                  <div key={ e.id } onDoubleClick={ () => navigate(`/employee/${e.id}`) }>
                     <div className="flex faic mg3-b brd1">
                       <div className="fl1 ptb5 plr5 flex fjc-c">
                         <div className="circle50 bg-scd"></div>
@@ -80,7 +77,7 @@ export default function EmployeePage() {
                       </div>
                     </div>
                   </div>
-                ))
+                )) : <div>Loading...</div>
               }
             </div>
           </div>

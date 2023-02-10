@@ -1,19 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 
 export default function TextInput({ field, displayName, initialValue, updateEmployee }) {
   const [isFormOpened, setFormOpened] = useState(false)
   const [v, setV] = useState(initialValue)
 
-  function onCancel(e) {
+  const onCancel = e => {
     e.preventDefault()
-
     setV(initialValue)
     setFormOpened(false)
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault()
-
     updateEmployee(field, v)
     setFormOpened(false)
   }
