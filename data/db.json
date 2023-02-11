@@ -1,40 +1,16 @@
 {
   "department": [
     {
-      "name": "CSS",
-      "id": 4
-    },
-    {
-      "name": "HTML",
-      "id": 5
-    },
-    {
-      "name": "Ruby7",
-      "id": 10
-    },
-    {
-      "name": "HTML",
-      "id": 11
-    },
-    {
-      "name": "HTML5",
-      "id": 12
-    },
-    {
-      "name": "jQuery",
-      "id": 13
-    },
-    {
-      "name": "HTML",
-      "id": 14
-    },
-    {
-      "name": "jQuery",
-      "id": 15
-    },
-    {
-      "name": "qqq",
+      "name": "AJAX",
       "id": 16
+    },
+    {
+      "name": "C#",
+      "id": 17
+    },
+    {
+      "name": "ASP.NET Core",
+      "id": 18
     }
   ],
   "employee": [
@@ -45,34 +21,40 @@
       "id": 4
     },
     {
-      "name": "Mkhitar",
-      "surname": "Simonyan",
+      "name": "HTML",
+      "surname": "Anderson",
       "department": "1",
       "id": 5
     },
     {
-      "name": "Martik",
-      "surname": "Sargsyan",
-      "department": "1",
+      "name": "HTML",
+      "surname": "ccc",
+      "department": "2",
       "id": 6
     },
     {
-      "name": "ոոո",
-      "surname": "եեե",
-      "department": "3",
+      "name": "HTML",
+      "surname": "ccc",
+      "department": "2",
       "id": 7
     },
     {
-      "name": "fdf",
-      "surname": "dfdf",
-      "department": "3",
+      "name": "HTML",
+      "surname": "ccc",
+      "department": "2",
       "id": 8
     },
     {
-      "name": "ere",
-      "surname": "erer",
+      "name": "Unity",
+      "surname": "Mnatsakanyan",
       "department": "2",
       "id": 9
+    },
+    {
+      "name": "HTML",
+      "surname": "Mnatsakanyan",
+      "department": "2",
+      "id": 10
     }
   ]
 }

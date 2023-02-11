@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import EmployeeCreateModal from "./EmployeeCreateModal"
+import EmployeeList from "./EmployeeList"
 import axios from "axios"
-import {Link, useNavigate} from "react-router-dom"
 
 export default function EmployeePage() {
   const [modalOpened, setModalOpened] = useState(false)
-  const [employees, setEmployees] = useState(null)
-  const [lastEmployee, setLastEmployee] = useState(null)
-  const navigate = useNavigate()
+  const [employees, setEmployees] = useState([])
+  const [lastEmployees, setLastEmployees] = useState([])
 
   useEffect(() => {
     axios
@@ -20,7 +19,7 @@ export default function EmployeePage() {
     axios
       .post('/employee', emp)
       .then(res => {
-        setLastEmployee(res.data)
+        setLastEmployees(oldLastEmployees => [res.data, ...oldLastEmployees])
       })
       .catch(err => console.log(err.message))
   }
@@ -39,48 +38,16 @@ export default function EmployeePage() {
           <div className="fl1 ptb5 plr5 fw9 fc-lgt">Actions</div>
         </div>
         <div>
-          <div>
-            {
-              lastEmployee && <>
-                                <div className="mg10-t">Last Created</div>
-                                <div className="brd1 mg10-t">
-                                  <div className="flex faic">
-                                    <div className="fl1 ptb5 plr5 flex fjc-c">
-                                      <div className="circle50 bg-scd"></div>
-                                    </div>
-                                    <div className="fl1 pd5">{ lastEmployee.name }</div>
-                                    <div className="fl1 pd5">{ lastEmployee.surname }</div>
-                                    <div className="fl1 pd5">{ lastEmployee.department }</div>
-                                    <div className="fl1 pd5">
-                                      <Link to={ `${lastEmployee.id}` }>Details</Link>
-                                    </div>
-                                  </div>
-                                </div>
-                              </>
-            }
-          </div>
-          <div>
-            <div className="mg10-t">Employee List</div>
-            <div className="mg10-t">
-              {
-                employees ? employees.map(e => (
-                  <div key={ e.id } onDoubleClick={ () => navigate(`/employee/${e.id}`) }>
-                    <div className="flex faic mg3-b brd1">
-                      <div className="fl1 ptb5 plr5 flex fjc-c">
-                        <div className="circle50 bg-scd"></div>
-                      </div>
-                      <div className="fl1 pd5">{ e.name }</div>
-                      <div className="fl1 pd5">{ e.surname }</div>
-                      <div className="fl1 pd5">{ e.department }</div>
-                      <div className="fl1 pd5">
-                        <Link to={`${e.id}`} className="pd5">Details</Link>
-                      </div>
-                    </div>
-                  </div>
-                )) : <div>Loading...</div>
-              }
-            </div>
-          </div>
+          <EmployeeList
+            list={ lastEmployees }
+            displayName="Last Created"
+            setEmployees={ setLastEmployees }  />
+          <EmployeeList
+            list={ employees }
+            displayName="Employee List"
+            setEmployees={ setEmployees }>
+              Loading...
+          </EmployeeList>
         </div>
       </div>
       {

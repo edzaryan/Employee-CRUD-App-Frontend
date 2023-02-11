@@ -1,7 +1,7 @@
 import React from "react"
-import Department from "./Department"
+import Employee from "./Employee"
 
-export default function DepartmentList({ displayName, list, setDepartments, children }) {
+export default function EmployeeList({ displayName, list, setEmployees, children }) {
   return (
     <div>
       {
@@ -10,7 +10,7 @@ export default function DepartmentList({ displayName, list, setDepartments, chil
             <div className="mg10-t">{ displayName }</div>
             <div className="mg10-t">
               {
-                list.map(department => <Department key={ department.id } dep={ department } setDepartments={ setDepartments } />)
+                list.map(employee => <Employee key={ employee.id } employee={ employee } setEmployees={ setEmployees } />)
               }
             </div>
           </> :
