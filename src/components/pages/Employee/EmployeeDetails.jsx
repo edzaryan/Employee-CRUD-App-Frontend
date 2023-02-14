@@ -42,8 +42,8 @@ function EmployeeDetails() {
   return (
     <div>
       <div className="flex fjc-b">
-        <button onClick={ goBack } className="fc-drk pd10 bg-lgt rad3 brd1">Go back</button>
-        <button onClick={ handleDelete } className="fc-wht pd10 bg-dgr rad3">Delete</button>
+        <button onClick={ goBack } className="btn btn-light">Go back</button>
+        <button onClick={ handleDelete } className="btn btn-danger">Delete</button>
       </div>
       <div className="flex fjc-b mg20-t">
         <div className="flex fl1">

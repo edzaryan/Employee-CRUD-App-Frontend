@@ -37,15 +37,15 @@ export default function Department({ dep, setDepartments }) {
               <input type="text" className="w100 brd1 pd10 rad3" value={ v } onChange={ e => setV(e.target.value) }/>
             </div>
             <div className="fl1">
-              <button className="bg-wht brd1 fc-drk mg10-l rad3 pd10" onClick={ onCancel }>Cancel</button>
-              <button className="fc-lgt bg-prm mg10-l rad3 pd10">Apply</button>
+              <button className="btn btn-light mg10-l" onClick={ onCancel }>Cancel</button>
+              <button className="btn btn-primary mg10-l">Apply</button>
             </div>
           </form> :
           <div className="fl1 flex">
             <div className="fl1 flex faic" onDoubleClick={ () => setFormOpened(true) }>{ v }</div>
             <div className="fl1 flex">
-              <button className="pd10 mg10-l bg-lgt brd1 rad3" onClick={ () => setFormOpened(true) }>Edit</button>
-              <button className="pd10 mg10-l bg-dgr fc-wht rad3" onClick={
+              <button className="btn btn-light mg10-l" onClick={ () => setFormOpened(true) }>Edit</button>
+              <button className="btn btn-danger mg10-l" onClick={
                 () => {
                   deleteDepartment(dep.id)
                   setDepartments(oldDeps => oldDeps.filter(department => department.id !== dep.id))

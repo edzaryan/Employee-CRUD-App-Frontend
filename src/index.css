@@ -14,10 +14,61 @@ select {
     border: 1px solid grey;
 }
 
-button {
-    cursor: pointer;
+/* BUTTONS */
+
+.btn {
+    display: inline-block;
     min-width: 70px;
+    height: 37px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 500;
+    user-select: none;
 }
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #0D6EFD;
+}
+
+.btn-secondary {
+    color: #ffffff;
+    background-color: #6C757D;
+}
+
+.btn-success {
+    color: #ffffff;
+    background-color: #198754;
+}
+
+.btn-danger {
+    color: #ffffff;
+    background-color: #DC3545;
+}
+
+.btn-warning {
+    color: #ffffff;
+    background-color: #FFC107;
+}
+
+.btn-light {
+    color: #525252;;
+    background-color: #F8F9FA;
+    border: 1px solid #d0d0d0;
+}
+
+
+/* BACKGROUND-COLORS */
+
+.bg-prm { background-color: #0D6EFD; }
+.bg-scd { background-color: #6C757D; }
+.bg-suc { background-color: #198754; }
+.bg-dgr { background-color: #DC3545; }
+.bg-wrn { background-color: #FFC107; }
+.bg-sky { background-color: #0DCAF0; }
+.bg-lgt { background-color: #F8F9FA; }
+.bg-drk { background-color: #212529; }
+.bg-wht { background-color: #ffffff; }
 
 /* WIDTHS */
 .w800 { width: 800px; }
@@ -111,18 +162,6 @@ button {
 .mg30-t { margin-top: 30px; }
 .mg30-r { margin-right: 30px; }
 .mg50-t { margin-top: 50px; }
-
-/* BACKGROUND-COLORS */
-
-.bg-prm { background-color: #0D6EFD; }
-.bg-scd { background-color: #6C757D; }
-.bg-suc { background-color: #198754; }
-.bg-dgr { background-color: #DC3545; }
-.bg-wrn { background-color: #FFC107; }
-.bg-sky { background-color: #0DCAF0; }
-.bg-lgt { background-color: #F8F9FA; }
-.bg-drk { background-color: #212529; }
-.bg-wht { background-color: #ffffff; }
 
 /* ROUND */
 

@@ -24,7 +24,7 @@ function EmployeeCreateModal({ setModalOpened, createDepartment }) {
             <label className="mg10-b">Name</label>
             <input type="text" name="name" className="pd10 rad3" />
             <div className="flex fjc-r mg30-t mg10-b">
-              <button className="pd10 bg-lgt brd1 fc-drk rad3">Create</button>
+              <button className="btn btn-light">Create</button>
             </div>
           </div>
         </form>

@@ -35,7 +35,7 @@ function EmployeeCreateModal({ setModalOpened, createEmployee }) {
               <option value="3">Javascript</option>
             </select>
             <div className="flex fjc-r mg30-t mg10-b">
-              <button className="pd10 bg-lgt brd1 fc-drk rad3">Create</button>
+              <button className="btn btn-light">Create</button>
             </div>
           </div>
         </form>

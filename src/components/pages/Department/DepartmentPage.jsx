@@ -35,7 +35,7 @@ export default function DepartmentPage() {
           <Link to="" className="pd5">All</Link>
           <Link to="recent" className="pd5">Recent</Link>
         </div>
-        <button className="fc-lgt pd10 bg-lgt brd1 fc-drk rad3" onClick={ () => setModalOpened(true) }>Create</button>
+        <button className="btn btn-light" onClick={ () => setModalOpened(true) }>Create</button>
       </div>
       <div>
         <div className="flex bg-suc">
