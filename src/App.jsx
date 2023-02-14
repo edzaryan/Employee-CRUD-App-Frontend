@@ -9,6 +9,7 @@ import NotfoundPage from './components/pages/NotfoundPage';
 import EmployeeDetails from "./components/pages/Employee/EmployeeDetails";
 
 import Navbar from './components/Navbar'
+import DepartmentList from "./components/pages/Department/DepartmentList";
 
 function App() {
   return (
@@ -17,9 +18,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={ <HomePage /> } />
-          <Route path="/employee" element={ <EmployeePage /> } />
-          <Route path="/department" element={ <DepartmentPage /> } />
-          <Route path="/employee/:id" element={ <EmployeeDetails /> } />
+          <Route path="/employee/*" element={ <EmployeePage /> } />
+          <Route path="/department/*" element={ <DepartmentPage /> } />
+          <Route path="/employee/:id/details" element={ <EmployeeDetails /> } />
 
           <Route path="*" element={ <NotfoundPage /> } />
         </Routes>

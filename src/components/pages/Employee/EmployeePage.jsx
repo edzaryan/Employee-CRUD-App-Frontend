@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import EmployeeCreateModal from "./EmployeeCreateModal"
 import EmployeeList from "./EmployeeList"
 import axios from "axios"
+import {Link, Route, Routes} from "react-router-dom";
 
 export default function EmployeePage() {
   const [modalOpened, setModalOpened] = useState(false)
@@ -9,10 +10,13 @@ export default function EmployeePage() {
   const [lastEmployees, setLastEmployees] = useState([])
 
   useEffect(() => {
-    axios
-      .get('/employee')
-      .then(res => setEmployees(res.data))
-      .catch(err => console.log(err.message))
+    Promise.all([
+      axios.get(`/employee`).then(res => res.data),
+      axios.get(`/recent-employee`).then(res => res.data)
+    ]).then(([employees, lastEmployees]) => {
+      setEmployees(employees)
+      setLastEmployees(lastEmployees)
+    })
   }, [])
 
   const createEmployee = emp => {
@@ -26,7 +30,11 @@ export default function EmployeePage() {
 
   return (
     <div>
-      <div className="flex fjc-r mg10-b">
+      <div className="flex fjc-b faic mg10-b">
+        <div>
+          <Link to="" className="pd5">All</Link>
+          <Link to="recent" className="pd5">Recent</Link>
+        </div>
         <button className="fc-lgt pd10 bg-lgt brd1 fc-drk rad3" onClick={ () => setModalOpened(true) }>Create</button>
       </div>
       <div>
@@ -37,18 +45,10 @@ export default function EmployeePage() {
           <div className="fl1 ptb5 plr5 fw9 fc-lgt">Department</div>
           <div className="fl1 ptb5 plr5 fw9 fc-lgt">Actions</div>
         </div>
-        <div>
-          <EmployeeList
-            list={ lastEmployees }
-            displayName="Last Created"
-            setEmployees={ setLastEmployees }  />
-          <EmployeeList
-            list={ employees }
-            displayName="Employee List"
-            setEmployees={ setEmployees }>
-              Loading...
-          </EmployeeList>
-        </div>
+        <Routes>
+          <Route index element={ <EmployeeList list={ employees } setEmployees={ setEmployees } /> } />
+          <Route path="recent" element={ <EmployeeList list={ lastEmployees } setEmployees={ setLastEmployees } /> } />
+        </Routes>
       </div>
       {
         modalOpened && <EmployeeCreateModal

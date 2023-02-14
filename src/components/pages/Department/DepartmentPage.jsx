@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios"
-import Department from "./Department";
 import DepartmentCreateModal from "./DepartmentCreateModal";
 import DepartmentList from "./DepartmentList";
+import {Link, Route, Routes} from "react-router-dom";
 
 export default function DepartmentPage() {
   const [modalOpened, setModalOpened] = useState(false)
@@ -10,10 +10,13 @@ export default function DepartmentPage() {
   const [lastDepartments, setLastDepartments] = useState([])
 
   useEffect(() => {
-    axios
-      .get('/department')
-      .then(res => setDepartments(res.data))
-      .catch(err => console.log(err.message))
+    Promise.all([
+      axios.get(`/department`).then(res => res.data),
+      axios.get(`/recent-department`).then(res => res.data)
+    ]).then(([departments, lastDepartments]) => {
+      setDepartments(departments)
+      setLastDepartments(lastDepartments)
+    })
   }, [])
 
   const createDepartment = newDep => {
@@ -27,7 +30,11 @@ export default function DepartmentPage() {
 
   return (
     <div>
-      <div className="flex fjc-r mg10-b">
+      <div className="flex fjc-b faic mg10-b">
+        <div>
+          <Link to="" className="pd5">All</Link>
+          <Link to="recent" className="pd5">Recent</Link>
+        </div>
         <button className="fc-lgt pd10 bg-lgt brd1 fc-drk rad3" onClick={ () => setModalOpened(true) }>Create</button>
       </div>
       <div>
@@ -35,17 +42,12 @@ export default function DepartmentPage() {
           <div className="fl1 ptb5 plr5 fw9 fc-lgt">Name</div>
           <div className="fl1 ptb5 plr5 fw9 fc-lgt">Actions</div>
         </div>
-        <DepartmentList
-          displayName="Last created"
-          list={ lastDepartments }
-          setDepartments={ setLastDepartments } />
-        <DepartmentList
-          displayName="Department list"
-          list={ departments }
-          setDepartments={ setDepartments }>
-            Loading...
-        </DepartmentList>
+        <Routes>
+          <Route index element={ <DepartmentList list={ departments } setDepartments={ setDepartments } /> } />
+          <Route path="recent" element={ <DepartmentList list={ lastDepartments } setDepartments={ setLastDepartments } /> } />
+        </Routes>
       </div>
+
       {
         modalOpened && <DepartmentCreateModal
                           setModalOpened={ setModalOpened }

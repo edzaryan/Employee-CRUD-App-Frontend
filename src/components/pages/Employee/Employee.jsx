@@ -1,7 +1,7 @@
 import {Link, useNavigate} from "react-router-dom";
 import React from "react";
 
-export default function Employee({ employee }) {
+export default function Employee({ employee, setEmployees }) {
   const navigate = useNavigate()
 
   return (
@@ -14,7 +14,7 @@ export default function Employee({ employee }) {
         <div className="fl1 pd5">{ employee.surname }</div>
         <div className="fl1 pd5">{ employee.department }</div>
         <div className="fl1 pd5">
-          <Link to={`${ employee.id }`} className="pd5">Details</Link>
+          <Link to={`/employee/${ employee.id }/details`} className="pd5">Details</Link>
         </div>
       </div>
     </div>
