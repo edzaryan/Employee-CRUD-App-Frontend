@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios"
 import {useNavigate, useParams} from "react-router-dom"
-import './EmployeeDetails.css'
 import TextInput from "../form/TextInput";
 import SelectInput from "../form/SelectInput";
 
@@ -53,23 +52,9 @@ function EmployeeDetails() {
                 <div className="profile">IMAGE</div>
                 <div className="fl1 flex fl-dir mg20-l">
                   <div className="fs24 fw8 mg20-b">Employee Details</div>
-                  <TextInput
-                    field="name"
-                    displayName="Name"
-                    updateEmployee={ handleChange }
-                    initialValue={ employee.name } />
-                  <TextInput
-                    field="surname"
-                    displayName="Surname"
-                    updateEmployee={ handleChange }
-                    initialValue={ employee.surname } />
-                  <SelectInput
-                    field="department"
-                    displayName="Department"
-                    updateEmployee={ handleChange }
-                    initialValue={ employee.department }
-                    list={ department }
-                  />
+                  <TextInput field="name" displayName="Name" updateEmployee={ handleChange } initialValue={ employee.name } />
+                  <TextInput field="surname" displayName="Surname" updateEmployee={ handleChange } initialValue={ employee.surname } />
+                  <SelectInput field="department" displayName="Department" updateEmployee={ handleChange } initialValue={ employee.department } list={ department }/>
                 </div>
               </> :
               <div>Loading...</div>

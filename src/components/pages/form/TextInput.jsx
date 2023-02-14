@@ -22,37 +22,15 @@ export default function TextInput({ field, displayName, initialValue, updateEmpl
       {
         isFormOpened ?
           <form className="flex mg5-t" onSubmit={ handleSubmit }>
-            <input
-              type="text"
-              id={ displayName }
-              name={ field }
-              className="fl1 brd1 pd10 rad3"
-              value={ v }
-              onChange={ e => setV(e.target.value) }
-            />
+            <input type="text" id={ displayName } name={ field } className="fl1" value={ v } onChange={ e => setV(e.target.value) }/>
             <div>
-              <button
-                className="bg-wht brd1 fc-drk mg10-l rad3 pd10"
-                onClick={ onCancel }>
-                  Cancel
-              </button>
-              <button
-                className="fc-lgt bg-prm mg10-l rad3 pd10">
-                  Apply
-              </button>
+              <button className="btn btn-light mg10-l pd10" onClick={ onCancel }>Cancel</button>
+              <button className="btn btn-primary mg10-l pd10">Apply</button>
             </div>
           </form> :
           <div className="flex mg5-t">
-            <div
-              className="fl1 ptb10"
-              onDoubleClick={ () => setFormOpened(true) }>
-                { v }
-            </div>
-            <button
-              className="pd10 rad3 bg-wht brd1"
-              onClick={ () => setFormOpened(true) }>
-                Edit
-            </button>
+            <div className="fl1 ptb10" onDoubleClick={ () => setFormOpened(true) }>{ v }</div>
+            <button className="pd10 btn btn-light" onClick={ () => setFormOpened(true) }>Edit</button>
           </div>
       }
     </div>

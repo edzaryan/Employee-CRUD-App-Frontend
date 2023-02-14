@@ -11,7 +11,7 @@ export default function SelectInput({ field, displayName, initialValue, updateEm
   return (
     <div className="mg20-b">
       <label className="fw8 fs17">{ displayName }</label>
-      <select className="pd10 w100 mg10-t brd1 rad3" onChange={ handleChange } value={ department }>
+      <select className="w100 mg10-t" onChange={ handleChange } value={ department }>
         <option value="">-- Choose Department --</option>
         {
           list && list.map(dep => <option key={ dep.id } value={ dep.id }>{ dep.name }</option>)
