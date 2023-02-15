@@ -41,6 +41,7 @@
     padding: 6px;
     border-radius: 3px 3px 0 0;
     font-weight: 700;
+    user-select: none;
 }
 
 .modal .header > div {

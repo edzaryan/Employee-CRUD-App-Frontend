@@ -25,7 +25,6 @@ function EmployeeDetails() {
   function handleChange(name, value) {
     axios
       .patch(`/employee/${id}`, { [name]: value })
-      .then(res => console.log('***'))
       .catch(err => console.log(err.message()))
   }
 

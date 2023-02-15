@@ -15,28 +15,16 @@
   ],
   "department": [
     {
-      "name": "Java",
-      "id": 16
-    },
-    {
-      "name": "HR",
-      "id": 17
-    },
-    {
-      "name": ".NET Core",
-      "id": 19
-    },
-    {
-      "name": "Javascript",
-      "id": 20
-    },
-    {
       "name": "IOS",
-      "id": 21
+      "id": 24
     },
     {
-      "name": "Android",
-      "id": 22
+      "name": "Java",
+      "id": 25
+    },
+    {
+      "name": ".Net",
+      "id": 27
     }
   ],
   "recent-employee": [

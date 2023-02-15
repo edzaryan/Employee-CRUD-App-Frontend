@@ -1,13 +1,21 @@
 import React, {useState} from "react"
 import axios from "axios"
+import RemoveDialog from "../form/RemoveDialog";
 
 export default function Department({ dep, setDepartments }) {
   const [isFormOpened, setFormOpened] = useState(false)
   const [v, setV] = useState(dep.name)
+  const [isDialogOpened, setDialogOpened] = useState(false)
 
-  const deleteDepartment = id => {
+  const deleteDepartment = () => {
     axios
-      .delete(`/department/${id}`)
+      .delete(`/department/${ dep.id }`)
+      .then(() => {
+        setDepartments(oldDeps => oldDeps.filter(department => department.id !== dep.id))
+      })
+      .then(() => {
+        setDialogOpened(false)
+      })
       .catch(err => console.log(err.message()))
   }
 
@@ -51,16 +59,18 @@ export default function Department({ dep, setDepartments }) {
               <button className="btn-light mg10-l" onClick={ () => setFormOpened(true) }>
                 <span className="material-symbols-outlined">edit</span>
               </button>
-              <button className="btn-danger mg10-l flex faic fjc-c" onClick={
-                () => {
-                  deleteDepartment(dep.id)
-                  setDepartments(oldDeps => oldDeps.filter(department => department.id !== dep.id))
-                }
-              }>
+              <button className="btn-danger mg10-l flex faic fjc-c" onClick={ () => setDialogOpened(true) }>
                 <span className="material-symbols-outlined">delete</span>
               </button>
             </div>
           </div>
+      }
+      {
+        isDialogOpened && <RemoveDialog
+                              name={ dep.name }
+                              setDialogOpened={ setDialogOpened }
+                              deleteDepartment={ deleteDepartment }
+                              type="Department" />
       }
     </div>
   )

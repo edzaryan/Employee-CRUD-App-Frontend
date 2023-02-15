@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from "axios"
 import DepartmentCreateModal from "./DepartmentCreateModal";
 import DepartmentList from "./DepartmentList";
-import {Link, Route, Routes} from "react-router-dom";
-// import Plus from '../../../icons/Plus.svg'
+import { Link, Route, Routes } from "react-router-dom";
 
 export default function DepartmentPage() {
   const [modalOpened, setModalOpened] = useState(false)
