@@ -35,15 +35,17 @@ export default function EmployeePage() {
           <Link to="" className="pd5">All</Link>
           <Link to="recent" className="pd5">Recent</Link>
         </div>
-        <button className="btn-light" onClick={ () => setModalOpened(true) }>Create</button>
+        <button className="btn-light" onClick={ () => setModalOpened(true) }>
+          <span className="material-symbols-outlined">add</span> Add
+        </button>
       </div>
       <div>
-        <div className="flex bg-suc">
-          <div className="fl1 ptb5 plr5"></div>
-          <div className="fl1 ptb5 plr5 fw9 fc-lgt">Name</div>
-          <div className="fl1 ptb5 plr5 fw9 fc-lgt">Surname</div>
-          <div className="fl1 ptb5 plr5 fw9 fc-lgt">Department</div>
-          <div className="fl1 ptb5 plr5 fw9 fc-lgt">Actions</div>
+        <div className="thead">
+          <div></div>
+          <div>Name</div>
+          <div>Surname</div>
+          <div>Department</div>
+          <div>Actions</div>
         </div>
         <Routes>
           <Route index element={ <EmployeeList list={ employees } setEmployees={ setEmployees } /> } />

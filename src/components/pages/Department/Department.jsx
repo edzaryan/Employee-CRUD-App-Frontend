@@ -36,21 +36,29 @@ export default function Department({ dep, setDepartments }) {
             <div className="fl1">
               <input type="text" className="w100" value={ v } onChange={ e => setV(e.target.value) }/>
             </div>
-            <div className="fl1">
-              <button className="btn-light mg10-l" onClick={ onCancel }>Cancel</button>
-              <button className="btn-primary mg10-l">Apply</button>
+            <div className="fl1 flex">
+              <button className="btn-light mg10-l" onClick={ onCancel }>
+                <span className="material-symbols-outlined">close</span>
+              </button>
+              <button className="btn-primary mg10-l">
+                <span className="material-symbols-outlined">done</span>
+              </button>
             </div>
           </form> :
           <div className="fl1 flex">
             <div className="fl1 flex faic" onDoubleClick={ () => setFormOpened(true) }>{ v }</div>
             <div className="fl1 flex">
-              <button className="btn-light mg10-l" onClick={ () => setFormOpened(true) }>Edit</button>
-              <button className="btn-danger mg10-l" onClick={
+              <button className="btn-light mg10-l" onClick={ () => setFormOpened(true) }>
+                <span className="material-symbols-outlined">edit</span>
+              </button>
+              <button className="btn-danger mg10-l flex faic fjc-c" onClick={
                 () => {
                   deleteDepartment(dep.id)
                   setDepartments(oldDeps => oldDeps.filter(department => department.id !== dep.id))
                 }
-              }>Delete</button>
+              }>
+                <span className="material-symbols-outlined">delete</span>
+              </button>
             </div>
           </div>
       }

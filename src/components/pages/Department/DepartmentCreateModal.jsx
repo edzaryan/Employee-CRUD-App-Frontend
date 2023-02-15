@@ -15,9 +15,11 @@ function EmployeeCreateModal({ setModalOpened, createDepartment }) {
   return (
     <div className="modalbase">
       <div className="modal">
-        <div className="flex fjc-b bg-suc pd10 fc-lgt">
+        <div className="header">
           <div>Create Department</div>
-          <div onClick={ () => setModalOpened(false) }>X</div>
+          <div onClick={ () => setModalOpened(false) }>
+            <span className="material-symbols-outlined">close</span>
+          </div>
         </div>
         <form className="flex mg20" onSubmit={ handleSubmit }>
           <div className="fl1 flex fl-dir">

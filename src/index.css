@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +7,8 @@
     text-decoration: none;
     border: none;
     outline: none;
+    font-family: Roboto Arial;
+    font-size: 15px;
 }
 
 /* MODAL */
@@ -20,11 +24,27 @@
 
 .modal {
     width: 560px;
+    border-radius: 3px;
     position: relative;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -70%);
     background-color: #F8F9FA;
+}
+
+.modal .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    background-color: #198754;
+    padding: 6px;
+    border-radius: 3px 3px 0 0;
+    font-weight: 700;
+}
+
+.modal .header > div {
+    font-size: 17px;
 }
 
 .modal .img {
@@ -48,16 +68,35 @@ select {
     border: 1px solid #e0e0e0;
 }
 
+/* TABLE */
+
+.thead {
+    display: flex;
+    background-color: #198754;
+    user-select: none;
+}
+
+.thead > div {
+    color: #F8F9FA;
+    font-weight: 600;
+    padding: 5px;
+    flex: 1;
+}
+
 /* BUTTONS */
 
 button {
     display: inline-block;
     min-width: 70px;
-    height: 37px;
+    height: 40px;
     cursor: pointer;
     border-radius: 3px;
     font-weight: 500;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 13px;
 }
 
 .btn-primary {
@@ -89,6 +128,11 @@ button {
     color: #525252;;
     background-color: #F8F9FA;
     border: 1px solid #e0e0e0;
+}
+
+.btn-link {
+    color: #525252;
+    background-color: white;
 }
 
 
