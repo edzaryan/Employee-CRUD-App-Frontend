@@ -1,6 +1,6 @@
 import React from "react"
 import Department from "./Department"
-import loader from "../../../icons/loader.svg";
+import Loader from "../form/Loader";
 
 export default function DepartmentList({ list, setDepartments }) {
   return (
@@ -8,9 +8,7 @@ export default function DepartmentList({ list, setDepartments }) {
       {
         list.length !== 0 ?
           list.map(department => <Department key={ department.id } dep={ department } setDepartments={ setDepartments } />) :
-          <div className="flex fjc-c faic pd10">
-            <img src={ loader } alt="loader" />
-          </div>
+          <Loader />
       }
     </div>
   )

@@ -1,6 +1,6 @@
 import React from "react"
 import Employee from "./Employee"
-import loader from "../../../icons/loader.svg"
+import Loader from "../form/Loader";
 
 export default function EmployeeList({ list, setEmployees }) {
   return (
@@ -8,9 +8,7 @@ export default function EmployeeList({ list, setEmployees }) {
       {
         list.length !== 0 ?
           list.map(employee => <Employee key={ employee.id } employee={ employee } />) :
-          <div className="flex fjc-c faic pd10">
-            <img src={ loader } alt="loader" />
-          </div>
+          <Loader />
       }
     </div>
   )
