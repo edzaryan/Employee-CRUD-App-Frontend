@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RemoveDialog({ name, type, setDialogOpened, deleteDepartment }) {
+export default function RemoveDialog({ name, type, setDialogOpened, handleDelete }) {
 
   return (
     <div className="modalbase">
@@ -15,7 +15,7 @@ export default function RemoveDialog({ name, type, setDialogOpened, deleteDepart
           <div>Are you sure you want to remove { name }</div>
           <div className="flex fjc-r mtb10">
             <button className="btn btn-light mg10-r" onClick={ () => setDialogOpened(false) }>Cancel</button>
-            <button className="btn btn-primary" onClick={ deleteDepartment }>Remove</button>
+            <button className="btn btn-primary" onClick={ handleDelete }>Remove</button>
           </div>
         </div>
       </div>

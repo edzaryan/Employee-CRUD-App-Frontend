@@ -7,7 +7,7 @@ export default function Department({ dep, setDepartments }) {
   const [v, setV] = useState(dep.name)
   const [isDialogOpened, setDialogOpened] = useState(false)
 
-  const deleteDepartment = () => {
+  const handleDelete = () => {
     axios
       .delete(`/department/${ dep.id }`)
       .then(() => {
@@ -69,7 +69,7 @@ export default function Department({ dep, setDepartments }) {
         isDialogOpened && <RemoveDialog
                               name={ dep.name }
                               setDialogOpened={ setDialogOpened }
-                              deleteDepartment={ deleteDepartment }
+                              handleDelete={ handleDelete }
                               type="Department" />
       }
     </div>

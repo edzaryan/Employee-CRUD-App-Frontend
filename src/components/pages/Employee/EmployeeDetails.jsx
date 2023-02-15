@@ -3,10 +3,12 @@ import axios from "axios"
 import {useNavigate, useParams} from "react-router-dom"
 import TextInput from "../form/TextInput";
 import SelectInput from "../form/SelectInput";
+import RemoveDialog from "../form/RemoveDialog";
 
 function EmployeeDetails() {
   const [employee, setEmployee] = useState(null)
   const [department, setDepartments] = useState(null)
+  const [isDialogOpened, setDialogOpened] = useState(false)
   const { id } = useParams()
   const navigate = useNavigate()
 
@@ -43,7 +45,7 @@ function EmployeeDetails() {
         <button onClick={ goBack } className="btn btn-link">
           <span className="material-symbols-outlined">arrow_back_ios</span>Go back
         </button>
-        <button onClick={ handleDelete } className="btn btn-danger">
+        <button onClick={ () => setDialogOpened(true) } className="btn btn-danger">
           <span className="material-symbols-outlined">delete</span>
         </button>
       </div>
@@ -64,6 +66,13 @@ function EmployeeDetails() {
           }
         </div>
       </div>
+      {
+        isDialogOpened && <RemoveDialog
+                              name={ employee.name + " " + employee.surname }
+                              setDialogOpened={ setDialogOpened }
+                              handleDelete={ handleDelete }
+                              type="Employee" />
+      }
     </div>
   )
 }

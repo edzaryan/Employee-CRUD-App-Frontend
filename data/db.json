@@ -15,16 +15,8 @@
   ],
   "department": [
     {
-      "name": "IOS",
-      "id": 24
-    },
-    {
       "name": "Java",
       "id": 25
-    },
-    {
-      "name": ".Net",
-      "id": 27
     }
   ],
   "recent-employee": [
@@ -48,18 +40,6 @@
     }
   ],
   "employee": [
-    {
-      "name": "Cameron Jan",
-      "surname": "Dias Jan",
-      "department": "16",
-      "id": 4
-    },
-    {
-      "name": "HTML",
-      "surname": "Anderson",
-      "department": "1",
-      "id": 5
-    },
     {
       "name": "HTML",
       "surname": "ccc",
