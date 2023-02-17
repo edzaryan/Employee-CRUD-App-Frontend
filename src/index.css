@@ -54,12 +54,6 @@
     background-color: #6C757D;
 }
 
-.profile {
-    width: 160px;
-    height: 225px;
-    background-color: #6C757D;
-}
-
 /* FORM */
 
 input,
@@ -152,10 +146,18 @@ button {
 /* WIDTHS */
 .w800 { width: 800px; }
 .w100 { width: 100%; }
+.w150 { width: 150px; }
 
 /* HEIGHTS */
 .h500 { height: 500px; }
 .min-h500 { min-height: 500px; }
+.h215 { height: 215px; }
+
+.profile {
+    width: 160px;
+    height: 225px;
+    background-color: #6C757D;
+}
 
 /* FLEXBOX */
 .flex { display: flex; }

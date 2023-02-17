@@ -17,6 +17,14 @@
     {
       "name": "Java",
       "id": 25
+    },
+    {
+      "name": "Ruby",
+      "id": 23
+    },
+    {
+      "name": "Python",
+      "id": 24
     }
   ],
   "recent-employee": [
@@ -41,22 +49,22 @@
   ],
   "employee": [
     {
+      "name": "Cameron Jan",
+      "surname": "Dias Jan",
+      "department": "16",
+      "id": 4
+    },
+    {
+      "name": "HTML",
+      "surname": "Anderson",
+      "department": "1",
+      "id": 5
+    },
+    {
       "name": "HTML",
       "surname": "ccc",
       "department": "17",
       "id": 6
-    },
-    {
-      "name": "HTML",
-      "surname": "ccc",
-      "department": "2",
-      "id": 7
-    },
-    {
-      "name": "Unity",
-      "surname": "Mnatsakanyan",
-      "department": "2",
-      "id": 9
     },
     {
       "name": "HTML",

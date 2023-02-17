@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, {useState} from "react";
-import RemoveDialog from "../form/RemoveDialog";
+import RemoveDialog from "../../form/RemoveDialog";
 
 export default function Employee({ employee }) {
   const navigate = useNavigate()

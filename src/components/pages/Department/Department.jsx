@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import axios from "axios"
-import RemoveDialog from "../form/RemoveDialog";
+import RemoveDialog from "../../form/RemoveDialog";
 
 export default function Department({ dep, setDepartments }) {
   const [isFormOpened, setFormOpened] = useState(false)

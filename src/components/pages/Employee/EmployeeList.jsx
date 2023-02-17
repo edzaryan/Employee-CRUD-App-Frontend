@@ -1,6 +1,6 @@
 import React from "react"
 import Employee from "./Employee"
-import Loader from "../form/Loader";
+import Loader from "../../form/Loader";
 
 export default function EmployeeList({ list, setEmployees }) {
   return (
