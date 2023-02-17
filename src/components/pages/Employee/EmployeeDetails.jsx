@@ -57,7 +57,7 @@ function EmployeeDetails() {
             <div className="flex fjc-b mg20-t">
               <div className="flex fl1">
                 <div className="w150">
-                  <ImageField />
+                  <ImageField imageUrl={ employee.image } id={ employee.id } />
                 </div>
                 <div className="fl1 flex fl-dir mg20-l">
                   <div className="fs24 fw8 mg20-b">Employee Details</div>

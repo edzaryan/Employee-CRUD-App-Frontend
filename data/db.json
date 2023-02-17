@@ -32,19 +32,22 @@
       "name": "Cameron Jan",
       "surname": "Dias Jan",
       "department": "16",
-      "id": 4
+      "id": 4,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
     {
       "name": "HTML",
       "surname": "Anderson",
       "department": "1",
-      "id": 5
+      "id": 5,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
     {
       "name": "HTML",
       "surname": "ccc",
       "department": "17",
-      "id": 6
+      "id": 6,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     }
   ],
   "employee": [
@@ -52,43 +55,50 @@
       "name": "Cameron Jan",
       "surname": "Dias Jan",
       "department": "16",
-      "id": 4
+      "id": 4,
+      "image": null
     },
     {
       "name": "HTML",
       "surname": "Anderson",
       "department": "1",
-      "id": 5
+      "id": 5,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
     {
       "name": "HTML",
       "surname": "ccc",
       "department": "17",
-      "id": 6
+      "id": 6,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
     {
       "name": "HTML",
       "surname": "Mnatsakanyan",
       "department": "17",
-      "id": 10
+      "id": 10,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
     {
       "name": "Ruby",
       "surname": "Mnatsakanyan",
       "department": "2",
-      "id": 11
+      "id": 11,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
     {
       "name": "Ruby",
       "surname": "ccc",
       "department": "1",
-      "id": 12
+      "id": 12,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
     {
       "name": "Unity",
       "surname": "www",
       "department": "2",
-      "id": 13
+      "id": 13,
+      "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     }
   ]
 }

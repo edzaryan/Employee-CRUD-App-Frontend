@@ -7,8 +7,15 @@
     text-decoration: none;
     border: none;
     outline: none;
-    font-family: Roboto Arial;
+    font-family: 'Roboto';
     font-size: 15px;
+}
+
+.imgStyle {
+    background-color: #a8a8a8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 /* MODAL */

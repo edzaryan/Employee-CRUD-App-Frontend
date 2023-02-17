@@ -9,7 +9,9 @@ export default function Employee({ employee }) {
     <div onDoubleClick={ () => navigate(`/employee/${ employee.id }/details`) }>
       <div className="flex faic mg3-b brd1">
         <div className="fl1 ptb5 plr5 flex fjc-c">
-          <div className="circle50 bg-scd"></div>
+          <div
+            className="circle50 imgStyle"
+            style={{ backgroundImage: employee.image && `url(${ employee.image })` }}></div>
         </div>
         <div className="fl1 pd5">{ employee.name }</div>
         <div className="fl1 pd5">{ employee.surname }</div>

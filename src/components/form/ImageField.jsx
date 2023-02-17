@@ -1,18 +1,9 @@
 import {useRef, useState} from "react";
+import axios from "axios";
 
-export default function ImageField() {
-  const [imageBase64, setImageBase64] = useState('')
+export default function ImageField({ id, imageUrl }) {
+  const [imageBase64, setImageBase64] = useState(imageUrl)
   const fileInput = useRef(null);
-
-  let imgStyle = {
-    width: '150px',
-    height: '207px',
-    backgroundColor: "#a8a8a8",
-    backgroundImage: imageBase64 && `url(${ imageBase64 })`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  }
 
   const handleChange = e => {
     const file = e.currentTarget.files[0]
@@ -33,9 +24,24 @@ export default function ImageField() {
     })
   }
 
+  const handleDelete = () => {
+    axios
+      .delete(`/employee/${id}/image`)
+      .then(() => {
+        setImageBase64('')
+      })
+      .catch(err => console.log(err.message()))
+  }
+
   return (
     <>
-      <div className="h215 bg-scd mg10-b rad3" style={ imgStyle }></div>
+      <div
+        className="h215 bg-scd mg10-b rad3 imgStyle"
+        style={{
+          backgroundImage: imageBase64 && `url(${ imageBase64 })`,
+          width: '150px',
+          height: '207px'
+      }}></div>
       <input hidden type="file" accept=".jpg,.jpeg,.png" onChange={ handleChange } ref={ fileInput } />
       <div className="flex">
         {
@@ -44,7 +50,7 @@ export default function ImageField() {
               <button className="fl1 btn-light mg5-r" onClick={ () => fileInput.current.click() }>
                 <span className="material-symbols-outlined">upload</span>
               </button>
-              <button className="fl1 btn-danger" onClick={ () => { setImageBase64('') }}>
+              <button className="fl1 btn-danger" onClick={ handleDelete }>
                 <span className="material-symbols-outlined">delete</span>
               </button>
             </> :
