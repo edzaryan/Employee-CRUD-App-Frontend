@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios"
 import {useNavigate, useParams} from "react-router-dom"
-import TextInput from "../../form/TextInput";
-import SelectInput from "../../form/SelectInput";
-import RemoveDialog from "../../form/RemoveDialog";
-import ImageField from "../../form/ImageField";
-import Loader from "../../form/Loader";
+import TextInput from "../../form/TextInput"
+import SelectInput from "../../form/SelectInput"
+import RemoveDialog from "../../form/RemoveDialog"
+import ImageField from "../../form/ImageField"
+import Loader from "../../form/Loader"
 
 function EmployeeDetails() {
   const [employee, setEmployee] = useState(null)
@@ -76,6 +76,9 @@ function EmployeeDetails() {
                               setDialogOpened={ setDialogOpened }
                               handleDelete={ handleDelete }
                               type="Employee" />
+      }
+      {
+
       }
     </div>
   )

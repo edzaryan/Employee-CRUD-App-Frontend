@@ -68,9 +68,9 @@ export default function Department({ dep, setDepartments }) {
       {
         isDialogOpened && <RemoveDialog
                               name={ dep.name }
+                              type="Department"
                               setDialogOpened={ setDialogOpened }
-                              handleDelete={ handleDelete }
-                              type="Department" />
+                              handleDelete={ handleDelete } />
       }
     </div>
   )

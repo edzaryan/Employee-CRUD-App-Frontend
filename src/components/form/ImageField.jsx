@@ -1,8 +1,9 @@
 import {useRef, useState} from "react";
-import axios from "axios";
+import RemoveDialog from "./RemoveDialog";
 
 export default function ImageField({ id, imageUrl }) {
   const [imageBase64, setImageBase64] = useState(imageUrl)
+  const [isDialogOpened, setDialogOpened] = useState(false)
   const fileInput = useRef(null);
 
   const handleChange = e => {
@@ -25,12 +26,16 @@ export default function ImageField({ id, imageUrl }) {
   }
 
   const handleDelete = () => {
-    axios
-      .delete(`/employee/${id}/image`)
-      .then(() => {
-        setImageBase64('')
-      })
-      .catch(err => console.log(err.message()))
+    setDialogOpened(false)
+    setImageBase64('')
+
+    // axios
+    //   .delete(`/employee/${id}/image`)
+    //   .then(() => {
+    //     setRemoveDialogOpened(false)
+    //     setImageBase64('')
+    //   })
+    //   .catch(err => console.log(err.message()))
   }
 
   return (
@@ -50,13 +55,20 @@ export default function ImageField({ id, imageUrl }) {
               <button className="fl1 btn-light mg5-r" onClick={ () => fileInput.current.click() }>
                 <span className="material-symbols-outlined">upload</span>
               </button>
-              <button className="fl1 btn-danger" onClick={ handleDelete }>
+              <button className="fl1 btn-danger" onClick={ () => setDialogOpened(true) }>
                 <span className="material-symbols-outlined">delete</span>
               </button>
             </> :
             <button onClick={ () => fileInput.current.click() } className="fl1 btn-light">Upload</button>
         }
       </div>
+      {
+        isDialogOpened && <RemoveDialog
+                              name="image"
+                              type="Image"
+                              setDialogOpened={ setDialogOpened }
+                              handleDelete={ handleDelete } />
+      }
     </>
   )
 }
