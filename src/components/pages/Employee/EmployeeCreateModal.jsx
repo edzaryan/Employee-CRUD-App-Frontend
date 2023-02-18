@@ -1,16 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react'
+import {ErrorMessage, Field, Form, Formik, useFormik} from "formik";
+import * as Yup from "yup";
+import TextField from "../../form/TextField";
+import SelectField from "../../form/SelectField";
 
 function EmployeeCreateModal({ setModalOpened, createEmployee }) {
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const data = new FormData(e.currentTarget);
-    const values = Object.fromEntries(data.entries());
-
-    createEmployee(values)
-    setModalOpened(false)
-  };
 
   return (
     <div className="modalbase">
@@ -21,28 +15,37 @@ function EmployeeCreateModal({ setModalOpened, createEmployee }) {
             <span className="material-symbols-outlined">close</span>
           </div>
         </div>
-        <form className="flex mg20" onSubmit={ handleSubmit }>
-          <div className="img mg20-r"></div>
-          <div className="fl1 flex fl-dir">
-            <label className="mg10-b">Name</label>
-            <input type="text" name="name" />
-            <label className="mtb10">Surname</label>
-            <input type="text" name="surname" />
-            <label className="mtb10">Department</label>
-            <select name="department">
-              <option value="">--Choose department--</option>
-              <option value="1">Java</option>
-              <option value="2">.Net</option>
-              <option value="3">Javascript</option>
-            </select>
-            <div className="flex fjc-r mg30-t mg10-b">
-              <button className="btn-light">Create</button>
+
+        <Formik
+          initialValues={{ name: '', surname: '', department: '' }}
+          validationSchema={Yup.object({
+            name: Yup.string()
+              .min(2, 'Must be 2 or more characters')
+              .max(15, 'Must be 15 characters or less')
+              .required('Required'),
+            surname: Yup.string()
+              .min(2, 'Must be 2 or more characters')
+              .max(20, 'Must be 20 characters or less')
+              .required('Required'),
+            department: Yup.string()
+              .required('Required')
+          })}
+          onSubmit={(values, { setSubmitting }) => {
+            createEmployee(values)
+            setSubmitting(false)
+          }}>
+          <Form className="flex fl-dir pd20">
+            <TextField field="name" displayName="Name" />
+            <TextField field="surname" displayName="Surname" />
+            <SelectField field="department" displayName="Department" />
+            <div className="flex fjc-r mg10-t">
+              <button className="btn-light" type="submit">Create</button>
             </div>
-          </div>
-        </form>
+          </Form>
+        </Formik>
       </div>
     </div>
-  );
+  )
 }
 
-export default EmployeeCreateModal;
+export default EmployeeCreateModal

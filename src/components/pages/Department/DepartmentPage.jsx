@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react'
 import axios from "axios"
 import DepartmentCreateModal from "./DepartmentCreateModal";
 import DepartmentList from "./DepartmentList";
-import { Link, Route, Routes } from "react-router-dom";
+import {Link, Route, Routes, useNavigate} from "react-router-dom";
 
 export default function DepartmentPage() {
   const [modalOpened, setModalOpened] = useState(false)
   const [departments, setDepartments] = useState([])
   const [lastDepartments, setLastDepartments] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     Promise.all([
@@ -23,6 +24,8 @@ export default function DepartmentPage() {
     axios
       .post('/department', newDep)
       .then(res => {
+        setModalOpened(false)
+        navigate('/department/recent')
         setLastDepartments(oldLastDeps => [res.data, ...oldLastDeps])
       })
       .catch(err => console.log(err.message))

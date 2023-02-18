@@ -25,6 +25,10 @@
     {
       "name": "Python",
       "id": 24
+    },
+    {
+      "name": "Scala",
+      "id": 26
     }
   ],
   "recent-employee": [
@@ -52,16 +56,9 @@
   ],
   "employee": [
     {
-      "name": "Cameron Jan",
-      "surname": "Dias Jan",
-      "department": "16",
-      "id": 4,
-      "image": null
-    },
-    {
       "name": "HTML",
       "surname": "Anderson",
-      "department": "1",
+      "department": "23",
       "id": 5,
       "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
     },
@@ -99,6 +96,12 @@
       "department": "2",
       "id": 13,
       "image": "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg"
+    },
+    {
+      "name": "Arevik",
+      "surname": "Yeghiazaryan",
+      "department": "1",
+      "id": 14
     }
   ]
 }

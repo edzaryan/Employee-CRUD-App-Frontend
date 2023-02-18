@@ -1,16 +1,9 @@
-import React from 'react';
+import React from 'react'
+import * as Yup from "yup"
+import { Form, Formik } from "formik"
+import TextField from "../../form/TextField"
 
 function EmployeeCreateModal({ setModalOpened, createDepartment }) {
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    const data = new FormData(e.currentTarget)
-    const values = Object.fromEntries(data.entries())
-
-    createDepartment(values)
-    setModalOpened(false)
-  };
 
   return (
     <div className="modalbase">
@@ -21,18 +14,28 @@ function EmployeeCreateModal({ setModalOpened, createDepartment }) {
             <span className="material-symbols-outlined">close</span>
           </div>
         </div>
-        <form className="flex mg20" onSubmit={ handleSubmit }>
-          <div className="fl1 flex fl-dir">
-            <label className="mg10-b">Name</label>
-            <input type="text" name="name" />
-            <div className="flex fjc-r mg30-t mg10-b">
-              <button className="btn-light">Create</button>
+        <Formik
+          initialValues={{ name: '' }}
+          validationSchema={Yup.object({
+            name: Yup.string()
+              .min(2, 'Must be 2 or more characters')
+              .max(15, 'Must be 15 characters or less')
+              .required('Required'),
+          })}
+          onSubmit={(values, { setSubmitting }) => {
+            createDepartment(values)
+            setSubmitting(false)
+          }}>
+          <Form className="flex fl-dir pd20">
+            <TextField field="name" displayName="Name" />
+            <div className="flex fjc-r mg10-t">
+              <button className="btn-light" type="submit">Create</button>
             </div>
-          </div>
-        </form>
+          </Form>
+        </Formik>
       </div>
     </div>
-  );
+  )
 }
 
-export default EmployeeCreateModal;
+export default EmployeeCreateModal

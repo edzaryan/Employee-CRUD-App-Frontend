@@ -6,7 +6,6 @@
     box-sizing: border-box;
     text-decoration: none;
     border: none;
-    outline: none;
     font-family: 'Roboto';
     font-size: 15px;
 }
@@ -210,6 +209,12 @@ button {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.pd20 { padding: 20px; }
+.pd20-l { padding-left: 20px; }
+.pd20-r { padding-right: 20px; }
+.pd20-t { padding-top: 20px; }
+.pd20-b { padding-bottom: 20px; }
 
 /* MARGINS */
 
