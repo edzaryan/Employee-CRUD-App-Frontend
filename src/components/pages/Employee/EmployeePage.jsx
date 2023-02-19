@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import EmployeeCreateModal from "./EmployeeCreateModal"
 import EmployeeList from "./EmployeeList"
 import axios from "axios"
-import {Link, Route, Routes, useNavigate} from "react-router-dom";
+import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 
 export default function EmployeePage() {
   const [modalOpened, setModalOpened] = useState(false)
@@ -34,9 +34,9 @@ export default function EmployeePage() {
   return (
     <div>
       <div className="flex fjc-b faic mg10-b">
-        <div>
-          <Link to="" className="pd5">All</Link>
-          <Link to="recent" className="pd5">Recent</Link>
+        <div className="all-recent-block">
+          <NavLink to="" className={({isActive}) => isActive ? 'underline' : '' } end>All</NavLink>
+          <NavLink to="recent" className={({isActive}) => isActive ? 'underline' : '' }>Recent</NavLink>
         </div>
         <button className="btn-light" onClick={ () => setModalOpened(true) }>
           <span className="material-symbols-outlined">add</span> Add

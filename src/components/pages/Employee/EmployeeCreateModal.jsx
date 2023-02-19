@@ -34,14 +34,18 @@ function EmployeeCreateModal({ setModalOpened, createEmployee }) {
             createEmployee(values)
             setSubmitting(false)
           }}>
-          <Form className="flex fl-dir pd20">
-            <TextField field="name" displayName="Name" />
-            <TextField field="surname" displayName="Surname" />
-            <SelectField field="department" displayName="Department" />
-            <div className="flex fjc-r mg10-t">
-              <button className="btn-light" type="submit">Create</button>
-            </div>
-          </Form>
+          {
+            formik => {
+              return (<Form className="flex fl-dir pd20">
+                <TextField field="name" displayName="Name" />
+                <TextField field="surname" displayName="Surname" />
+                <SelectField field="department" displayName="Department" />
+                <div className="flex fjc-r mg10-t">
+                  <button disabled={ !formik.isValid } className="btn-light" type="submit">Create</button>
+                </div>
+              </Form>)
+            }
+          }
         </Formik>
       </div>
     </div>

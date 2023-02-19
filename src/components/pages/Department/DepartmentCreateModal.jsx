@@ -22,16 +22,21 @@ function EmployeeCreateModal({ setModalOpened, createDepartment }) {
               .max(15, 'Must be 15 characters or less')
               .required('Required'),
           })}
-          onSubmit={(values, { setSubmitting }) => {
+          onSubmit={ (values, { setSubmitting }) => {
             createDepartment(values)
             setSubmitting(false)
           }}>
-          <Form className="flex fl-dir pd20">
-            <TextField field="name" displayName="Name" />
-            <div className="flex fjc-r mg10-t">
-              <button className="btn-light" type="submit">Create</button>
-            </div>
-          </Form>
+          {
+            formik => {
+              return (<Form className="flex fl-dir pd20">
+                <TextField field="name" displayName="Name" />
+
+                <div className="flex fjc-r mg10-t">
+                  <button disabled={ !formik.isValid } className="btn-light" type="submit">Create</button>
+                </div>
+              </Form>)
+            }
+          }
         </Formik>
       </div>
     </div>
