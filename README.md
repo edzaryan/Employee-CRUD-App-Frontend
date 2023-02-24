@@ -8,4 +8,4 @@ The code is organized into separate modules that handle different parts of the a
 
 This front-end part of the Employee CRUD Application.
 
-The App's back-end part can be found here. ('https://github.com/edzaryan/Employee-CRUD-App-Backend')
+The App's back-end part can be found [here.]('https://github.com/edzaryan/Employee-CRUD-App-Backend')
