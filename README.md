@@ -1,4 +1,4 @@
-# Employee CRUD App (built with React.js)
+# Employee CRUD App | Front-end, React.js
 
 The EmployeeApp-SPA is a single-page web application that provides a user-friendly interface for managing employee records. 
 
