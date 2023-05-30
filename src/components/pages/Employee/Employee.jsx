@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
 export default function Employee({ employee }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div onDoubleClick={ () => navigate(`/employee/${ employee.id }/details`) }>

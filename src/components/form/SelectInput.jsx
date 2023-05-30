@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
 export default function SelectInput({ field, displayName, initialValue, updateEmployee, list }) {
   const [department, setDepartment] = useState(initialValue)

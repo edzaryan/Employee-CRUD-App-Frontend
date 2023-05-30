@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {ErrorMessage, Field, Form, Formik, useFormik} from "formik";
+import React, { useState } from "react";
+import { ErrorMessage, Field, Form, Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import TextField from "../../form/TextField";
 import SelectField from "../../form/SelectField";
@@ -17,18 +17,18 @@ function EmployeeCreateModal({ setModalOpened, createEmployee }) {
         </div>
 
         <Formik
-          initialValues={{ name: '', surname: '', department: '' }}
+          initialValues={{ name: "", surname: "", department: "" }}
           validationSchema={Yup.object({
             name: Yup.string()
-              .min(2, 'Must be 2 or more characters')
-              .max(15, 'Must be 15 characters or less')
-              .required('Required'),
+              .min(2, "Must be 2 or more characters")
+              .max(15, "Must be 15 characters or less")
+              .required("Required"),
             surname: Yup.string()
-              .min(2, 'Must be 2 or more characters')
-              .max(20, 'Must be 20 characters or less')
-              .required('Required'),
+              .min(2, "Must be 2 or more characters")
+              .max(20, "Must be 20 characters or less")
+              .required("Required"),
             department: Yup.string()
-              .required('Required')
+              .required("Required")
           })}
           onSubmit={(values, { setSubmitting }) => {
             createEmployee(values)
@@ -52,4 +52,4 @@ function EmployeeCreateModal({ setModalOpened, createEmployee }) {
   )
 }
 
-export default EmployeeCreateModal
+export default EmployeeCreateModal;

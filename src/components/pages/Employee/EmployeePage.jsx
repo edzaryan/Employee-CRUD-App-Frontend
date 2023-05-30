@@ -1,34 +1,34 @@
-import React, {useEffect, useState} from 'react'
-import EmployeeCreateModal from "./EmployeeCreateModal"
-import EmployeeList from "./EmployeeList"
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import EmployeeCreateModal from "./EmployeeCreateModal";
+import EmployeeList from "./EmployeeList";
+import axios from "axios";
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 
 export default function EmployeePage() {
-  const [modalOpened, setModalOpened] = useState(false)
-  const [employees, setEmployees] = useState([])
-  const [lastEmployees, setLastEmployees] = useState([])
-  const navigate = useNavigate()
+  const [modalOpened, setModalOpened] = useState(false);
+  const [employees, setEmployees] = useState([]);
+  const [lastEmployees, setLastEmployees] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    Promise.all([
-      axios.get(`/employee`).then(res => res.data),
-      axios.get(`/recent-employee`).then(res => res.data)
-    ]).then(([employees, lastEmployees]) => {
-      setEmployees(employees)
-      setLastEmployees(lastEmployees)
-    })
-  }, [])
+    axios.get("/employee")
+      .then(response => {
+        setEmployees(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   const createEmployee = newEmp => {
     axios
-      .post('/employee', newEmp)
+      .post("/employee", newEmp)
       .then(res => {
-        setModalOpened(false)
-        navigate('/employee/recent')
-        setLastEmployees(oldLastEmployees => [res.data, ...oldLastEmployees])
+        setModalOpened(false);
+        navigate("/employee/recent");
+        setLastEmployees(oldLastEmployees => [res.data, ...oldLastEmployees]);
       })
-      .catch(err => console.log(err.message))
+      .catch(err => console.log(err.message));
   }
 
   return (

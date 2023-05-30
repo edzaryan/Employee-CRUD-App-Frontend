@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import { useRef, useState } from "react";
 import RemoveDialog from "./RemoveDialog";
 
 export default function ImageField({ id, imageUrl }) {
@@ -44,8 +44,8 @@ export default function ImageField({ id, imageUrl }) {
         className="h215 bg-scd mg10-b rad3 imgStyle"
         style={{
           backgroundImage: imageBase64 && `url(${ imageBase64 })`,
-          width: '150px',
-          height: '207px'
+          width: "150px",
+          height: "207px"
       }}></div>
       <input hidden type="file" accept=".jpg,.jpeg,.png" onChange={ handleChange } ref={ fileInput } />
       <div className="flex">

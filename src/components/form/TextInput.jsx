@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
 export default function TextInput({ field, displayName, initialValue, updateEmployee }) {
   const [isFormOpened, setFormOpened] = useState(false)

@@ -1,42 +1,42 @@
-import React, {useEffect, useState} from 'react'
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import DepartmentCreateModal from "./DepartmentCreateModal";
 import DepartmentList from "./DepartmentList";
-import {NavLink, Route, Router, Routes, useNavigate} from "react-router-dom";
+import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 
 export default function DepartmentPage() {
-  const [modalOpened, setModalOpened] = useState(false)
-  const [departments, setDepartments] = useState([])
-  const [lastDepartments, setLastDepartments] = useState([])
-  const navigate = useNavigate()
+  const [modalOpened, setModalOpened] = useState(false);
+  const [departments, setDepartments] = useState([]);
+  const [lastDepartments, setLastDepartments] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    Promise.all([
-      axios.get(`/department`).then(res => res.data),
-      axios.get(`/recent-department`).then(res => res.data)
-    ]).then(([departments, lastDepartments]) => {
-      setDepartments(departments)
-      setLastDepartments(lastDepartments)
-    })
-  }, [])
+    axios.get("/department")
+      .then(response => {
+        setDepartments(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   const createDepartment = newDep => {
     axios
-      .post('/department', newDep)
+      .post("/department", newDep)
       .then(res => {
-        setModalOpened(false)
-        navigate('/department/recent')
-        setLastDepartments(oldLastDeps => [res.data, ...oldLastDeps])
+        setModalOpened(false);
+        navigate("/department/recent");
+        setLastDepartments(oldLastDeps => [res.data, ...oldLastDeps]);
       })
-      .catch(err => console.log(err.message))
+      .catch(err => console.log(err.message));
   }
 
   return (
     <div>
       <div className="flex fjc-b faic mg10-b">
         <div className="all-recent-block">
-          <NavLink to="" className={({isActive}) => isActive ? 'underline' : '' } end>All</NavLink>
-          <NavLink to="recent" className={({isActive}) => isActive ? 'underline' : '' }>Recent</NavLink>
+          <NavLink to="" className={({isActive}) => isActive ? "underline" : "" } end>All</NavLink>
+          <NavLink to="recent" className={({isActive}) => isActive ? "underline" : "" }>Recent</NavLink>
         </div>
         <button className="btn-light flex faic fjc-c" onClick={ () => setModalOpened(true) }>
           <span className="material-symbols-outlined">add</span> Add

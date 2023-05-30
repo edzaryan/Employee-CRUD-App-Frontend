@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
-import HomePage from './components/pages/HomePage';
-import EmployeePage from './components/pages/Employee/EmployeePage';
-import DepartmentPage from './components/pages/Department/DepartmentPage';
-import NotfoundPage from './components/pages/NotfoundPage';
+import HomePage from "./components/pages/HomePage";
+import EmployeePage from "./components/pages/Employee/EmployeePage";
+import DepartmentPage from "./components/pages/Department/DepartmentPage";
+import NotfoundPage from "./components/pages/NotfoundPage";
 import EmployeeDetails from "./components/pages/Employee/EmployeeDetails";
 import Layout from "./components/Layout";
 

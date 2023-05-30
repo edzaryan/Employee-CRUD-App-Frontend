@@ -1,20 +1,20 @@
-import React, {useEffect, useState} from 'react'
-import axios from "axios"
-import {useNavigate, useParams} from "react-router-dom"
-import TextInput from "../../form/TextInput"
-import SelectInput from "../../form/SelectInput"
-import RemoveDialog from "../../form/RemoveDialog"
-import ImageField from "../../form/ImageField"
-import Loader from "../../form/Loader"
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import TextInput from "../../form/TextInput";
+import SelectInput from "../../form/SelectInput";
+import RemoveDialog from "../../form/RemoveDialog";
+import ImageField from "../../form/ImageField";
+import Loader from "../../form/Loader";
 
 function EmployeeDetails() {
-  const [employee, setEmployee] = useState(null)
-  const [department, setDepartments] = useState(null)
-  const [isDialogOpened, setDialogOpened] = useState(false)
-  const { id } = useParams()
-  const navigate = useNavigate()
+  const [employee, setEmployee] = useState(null);
+  const [department, setDepartments] = useState(null);
+  const [isDialogOpened, setDialogOpened] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  const goBack = () => navigate(-1)
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     Promise.all([
@@ -24,7 +24,7 @@ function EmployeeDetails() {
       setEmployee(employeeData)
       setDepartments(departmentData)
     })
-  }, [id])
+  }, [id]);
 
   function handleChange(name, value) {
     axios
@@ -36,9 +36,9 @@ function EmployeeDetails() {
     axios
       .delete(`/employee/${id}`)
       .then(res => {
-        goBack()
+        goBack();
       })
-      .catch(err => console.log(err.message()))
+      .catch(err => console.log(err.message()));
   }
 
   return (
@@ -84,4 +84,4 @@ function EmployeeDetails() {
   )
 }
 
-export default EmployeeDetails
+export default EmployeeDetails;

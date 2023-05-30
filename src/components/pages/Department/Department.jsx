@@ -1,39 +1,39 @@
-import React, {useState} from "react"
-import axios from "axios"
+import React, {useState} from "react";
+import axios from "axios";
 import RemoveDialog from "../../form/RemoveDialog";
 
 export default function Department({ dep, setDepartments }) {
-  const [isFormOpened, setFormOpened] = useState(false)
-  const [v, setV] = useState(dep.name)
-  const [isDialogOpened, setDialogOpened] = useState(false)
+  const [isFormOpened, setFormOpened] = useState(false);
+  const [v, setV] = useState(dep.name);
+  const [isDialogOpened, setDialogOpened] = useState(false);
 
   const handleDelete = () => {
     axios
       .delete(`/department/${ dep.id }`)
       .then(() => {
-        setDepartments(oldDeps => oldDeps.filter(department => department.id !== dep.id))
+        setDepartments(oldDeps => oldDeps.filter(department => department.id !== dep.id));
       })
       .then(() => {
-        setDialogOpened(false)
+        setDialogOpened(false);
       })
-      .catch(err => console.log(err.message()))
+      .catch(err => console.log(err.message()));
   }
 
   const handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     axios
       .patch(`/department/${dep.id}`, { name: v })
       .then(res => {
-        setFormOpened(false)
+        setFormOpened(false);
       })
-      .catch(err => console.log(err.message()))
+      .catch(err => console.log(err.message()));
   }
 
   const onCancel = e => {
-    e.preventDefault()
-    setV(dep.name)
-    setFormOpened(false)
+    e.preventDefault();
+    setV(dep.name);
+    setFormOpened(false);
   }
 
   return (

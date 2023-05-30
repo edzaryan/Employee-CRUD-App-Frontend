@@ -1,7 +1,7 @@
-import React from 'react'
-import * as Yup from "yup"
-import { Form, Formik } from "formik"
-import TextField from "../../form/TextField"
+import React from "react";
+import * as Yup from "yup";
+import { Form, Formik } from "formik";
+import TextField from "../../form/TextField";
 
 function EmployeeCreateModal({ setModalOpened, createDepartment }) {
 
@@ -18,9 +18,9 @@ function EmployeeCreateModal({ setModalOpened, createDepartment }) {
           initialValues={{ name: '' }}
           validationSchema={Yup.object({
             name: Yup.string()
-              .min(2, 'Must be 2 or more characters')
-              .max(15, 'Must be 15 characters or less')
-              .required('Required'),
+              .min(2, "Must be 2 or more characters")
+              .max(15, "Must be 15 characters or less")
+              .required("Required"),
           })}
           onSubmit={ (values, { setSubmitting }) => {
             createDepartment(values)
@@ -43,4 +43,4 @@ function EmployeeCreateModal({ setModalOpened, createDepartment }) {
   )
 }
 
-export default EmployeeCreateModal
+export default EmployeeCreateModal;
